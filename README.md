@@ -1,4 +1,4 @@
-# 🚀 Project Name
+# 🚀 AI Driven Hyper Personalization
 
 ## 📌 Table of Contents
 - [Introduction](#introduction)
@@ -14,7 +14,7 @@
 ---
 
 ## 🎯 Introduction
-A brief overview of your project and its purpose. Mention which problem statement are your attempting to solve. Keep it concise and engaging.
+Our project aims to recommend products to customers (Individual/ Organisation) based on their data.
 
 ## 🎥 Demo
 🔗 [Live Demo](#) (if applicable)  
@@ -24,10 +24,10 @@ A brief overview of your project and its purpose. Mention which problem statemen
 ![Screenshot 1](link-to-image)
 
 ## 💡 Inspiration
-What inspired you to create this project? Describe the problem you're solving.
+There is a need of the bank, to suggest the products that will be suitable for a particular customer. Those suggestions are dynamic, time-sensitive and human driven as of now. Our solution aims to automate this entire process and suggest the customer some product based on their recent transactions.
 
 ## ⚙️ What It Does
-Explain the key features and functionalities of your project.
+Our model is smart enough to incorporate recent spikes or changes in recent customer behaviour and suggest the products accordingly, so that it remains relevant for the present time.
 
 ## 🛠️ How We Built It
 Briefly outline the technologies, frameworks, and tools used in development.
@@ -50,11 +50,13 @@ Describe the major technical or non-technical challenges your team encountered.
    ```
 
 ## 🏗️ Tech Stack
-- 🔹 Frontend: React / Vue / Angular
-- 🔹 Backend: Node.js / FastAPI / Django
-- 🔹 Database: PostgreSQL / Firebase
-- 🔹 Other: OpenAI API / Twilio / Stripe
+- 🔹 Backend: Flask
+- 🔹 Database: MongoDB
+- 🔹 Other: OpenAI API / Deepseek R1
 
 ## 👥 Team
-- **Your Name** - [GitHub](#) | [LinkedIn](#)
-- **Teammate 2** - [GitHub](#) | [LinkedIn](#)
+- **Anirban Sikder** - [GitHub](#) | [LinkedIn](#)
+- **Devtanu Misra** - [GitHub](#) | [LinkedIn](#)
+- **Krishnendu Bera** - [GitHub](#) | [LinkedIn](#)
+- **Narasimha M. Edala** - [GitHub](#) | [LinkedIn](#)
+- **Dwaipayan Guha** - [GitHub](#) | [LinkedIn](#)
