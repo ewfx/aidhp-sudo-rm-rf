@@ -194,7 +194,7 @@ def analyze_recommendable_transaction_by_date(date_str: str):
         "}"
     )
 
-    user_message = f"Transactions:\n{prompt_context}\nWhich transaction do you pick?"
+    user_message = f"Transactions:\n{prompt_context}\nWhich transactions do you pick?"
 
     openai_client = get_openai_client()
 
@@ -229,7 +229,7 @@ def analyze_recommendable_transaction_by_date(date_str: str):
 
     return valid_transactions
 
-def analyze_recommendable_products_for_customer(customer_id: str, start_date: str, end_date: str):
+def analyze_recommendable_products_for_customer(customer_id: str):
     db = get_database()
     transactions_coll = db["transactions"]
     customers_coll = db["customers"]
@@ -244,14 +244,9 @@ def analyze_recommendable_products_for_customer(customer_id: str, start_date: st
     if not segment_id:
         return {"error": "Segment ID not found for customer"}
 
-    try:
-        start_date = datetime.strptime(start_date, "%m/%d/%Y")
-        end_date = datetime.strptime(end_date, "%m/%d/%Y")
-    except ValueError:
-        return {"error": "Invalid date format. Use MM/DD/YYYY."}
-
+    two_weeks_ago = datetime(2025,2,15) - timedelta(weeks=2) # Hard coded
     valid_transactions = transactions_coll.find({
-        "transaction_date": {"$gte": start_date, "$lte": end_date},
+        "transaction_date": {"$gte": two_weeks_ago},  # Filter for last 2 weeks
         "customer_id": customer_id,
         "is_processed_for_recommendation": True      # Only processed transactions
     })
@@ -265,17 +260,17 @@ def analyze_recommendable_products_for_customer(customer_id: str, start_date: st
         product for product in eligible_products if product["product_id"] not in customer_product_ids
     ]
 
-    tx_descriptions = []
-    for tx in valid_transactions:
-        tx_descriptions.append(
-            f"TransactionID: {tx['transaction_id']}, "
-            f"Transaction Type: {tx['transaction_type']}, "
-            f"Balance After Transaction: {tx['balance_after_transaction']}"
-            f"Amount: {tx['amount']}, "
-            f"Merchant Category: {tx['merchant_category']}, "
-            f"Description: {tx['description']}"
-        )
-    tx_prompt_context = "\n".join(tx_descriptions)
+    # tx_descriptions = []
+    # for tx in valid_transactions:
+    #     tx_descriptions.append(
+    #         f"TransactionID: {tx['transaction_id']}, "
+    #         f"Transaction Type: {tx['transaction_type']}, "
+    #         f"Balance After Transaction: {tx['balance_after_transaction']}"
+    #         f"Amount: {tx['amount']}, "
+    #         f"Merchant Category: {tx['merchant_category']}, "
+    #         f"Description: {tx['description']}"
+    #     )
+    # tx_prompt_context = "\n".join(tx_descriptions)
 
     tx_descriptions = []
     for tx in valid_transactions:
@@ -302,6 +297,7 @@ def analyze_recommendable_products_for_customer(customer_id: str, start_date: st
     pd_prompt_context = "\n".join(pd_descriptions)
 
     customer_interests = " ".join(list(customer.get('interests')))
+    customer_credit_score = customer.get('credit_score')
 
     system_prompt = (
         "You are a financial AI assistant specializing in recommending personalized banking products based on customer transactions"
@@ -313,14 +309,15 @@ def analyze_recommendable_products_for_customer(customer_id: str, start_date: st
         "Segment-Based Eligibility: Only recommend products that belong to the customer's designated segment."
         "Customer Interest: Take into account any explicit product interests the customer has shown in past interactions, applications, or inquiries."
         "Priority Ranking: Assign a priority to each recommended product based on how well it matches the transaction. A lower number indicates a higher priority (1 = best match)."
-        "\n\n Here are the **customer interests**" + "\n" + customer_interests + "\n"
+        "Here are the **customer interests**" + "\n" + customer_interests + "\n"
+        "Customer Credit Score: " + str(customer_credit_score) + "\n"
         "Here are the **eligible financial products**" + "\n" + pd_prompt_context + "\n"
-        "Output a object containing a list of valid transactions strictly maintaining below format:\n"
+        "Output a object containing a list of valid products strictly maintaining below format:\n"
         "{\"valid_products\": [\n"
         "    {\n"
         "      \"product_id\": \"<valid product id>\",\n"
         "      \"product_name\": \"<valid product name>\",\n"
-        "      \"reason\": \"<descriptive reason why this product is suitable for customer based on transactions>\"\n"
+        "      \"reason\": \"<brief reason why this product is suitable for customer>\"\n"
         "      \"priority\": \"<Recommendation priority (1 = highest, increasing number = lower priority)>\"\n"
         "    }\n"
         "  ]\n"
