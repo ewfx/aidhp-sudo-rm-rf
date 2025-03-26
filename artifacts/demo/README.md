@@ -1,5 +1,4 @@
-Replace this file with files that you would like to use for your demo. This may include
+# Demo resources
 
-- A presentation/deck in pdf or pptx format
-- A demo video (screen capture) in mp4 or other popular video formats
-- Any other document describing your solution (in pdf or md format)
+- Presentation has been attached in the demo folder.
+- Youtube Demo video link: [https://youtu.be/KEoaGlllDEI](https://youtu.be/KEoaGlllDEI)

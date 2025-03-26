@@ -1,62 +1,91 @@
 # 🚀 AI Driven Hyper Personalization
 
 ## 📌 Table of Contents
-- [Introduction](#introduction)
-- [Demo](#demo)
-- [Inspiration](#inspiration)
-- [What It Does](#what-it-does)
-- [How We Built It](#how-we-built-it)
-- [Challenges We Faced](#challenges-we-faced)
-- [How to Run](#how-to-run)
-- [Tech Stack](#tech-stack)
-- [Team](#team)
+
+- [Introduction](#-introduction)
+- [Demo](#-demo)
+- [Inspiration](#-inspiration)
+- [What It Does](#️-what-it-does)
+- [How We Built It](#️-how-we-built-it)
+- [Challenges We Faced](#-challenges-we-faced)
+- [How to Run](#-how-to-run)
+- [Tech Stack](#️-tech-stack)
+- [Team](#-team)
 
 ---
 
 ## 🎯 Introduction
-Our project aims to recommend products to customers (Individual/ Organisation) based on their data.
+
+Our project aims to recommend products to customers—whether individuals or organizations—based on their data. By leveraging recent transaction trends, customer profiles, and advanced AI capabilities, we deliver personalized product suggestions that adapt dynamically to changes in customer behavior.
 
 ## 🎥 Demo
-🔗 [Live Demo](#) (if applicable)  
-📹 [Video Demo](#) (if applicable)  
+
+📹 Youtube Demo video link: [https://youtu.be/KEoaGlllDEI](https://youtu.be/KEoaGlllDEI)
+
 🖼️ Screenshots:
 
-![Screenshot 1](link-to-image)
+![Screenshot 1](./artifacts/demo/screenshots/ss1.png)
+![Screenshot 2](./artifacts/demo/screenshots/ss2.png)
+![Screenshot 3](./artifacts/demo/screenshots/ss3.png)
+![Screenshot 4](./artifacts/demo/screenshots/ss4.png)
+![Screenshot 5](./artifacts/demo/screenshots/ss5.png)
+![Screenshot 6](./artifacts/demo/screenshots/ss6.png)
 
 ## 💡 Inspiration
-There is a need of the bank, to suggest the products that will be suitable for a particular customer. Those suggestions are dynamic, time-sensitive and human driven as of now. Our solution aims to automate this entire process and suggest the customer some product based on their recent transactions.
+
+Banks need to suggest the most suitable products for each customer. Currently, these suggestions are dynamic, time-sensitive, and largely human-driven. Our solution automates this process by analyzing recent transactions and customer behavior, delivering product recommendations that are timely and relevant.
 
 ## ⚙️ What It Does
-Our model is smart enough to incorporate recent spikes or changes in recent customer behaviour and suggest the products accordingly, so that it remains relevant for the present time.
+
+- **Dynamic Recommendations:** Incorporates recent changes in customer behavior to suggest the most relevant products.
+- **Data-Driven Insights:** Analyzes transaction history, income, credit score, and interests to tailor product suggestions.
+- **LLM Integration:** Uses AI-powered language models to generate and refine recommendations based on complex data patterns.
 
 ## 🛠️ How We Built It
-Briefly outline the technologies, frameworks, and tools used in development.
+
+Our solution is built with a focus on scalability and real-time data processing. Key components include:
+
+- **API-Driven Architecture:** Two main APIs handle daily transaction validation and bi-weekly customer product analysis.
+- **Database Integration:** Uses MongoDB to manage customer, product, and transaction data.
+- **AI Integration:** Leverages OpenAI API (Deepseek R1) for generating recommendations.
+- **Flask Framework:** The backend is developed using Python and Flask, ensuring a lightweight and robust service.
 
 ## 🚧 Challenges We Faced
-Describe the major technical or non-technical challenges your team encountered.
+
+- **Data Validation:** Ensuring transaction data integrity and handling anomalies.
+- **Real-Time Processing:** Balancing real-time data ingestion with complex AI computations.
+- **Integration:** Seamlessly connecting multiple systems including databases, schedulers, and external APIs.
+- **Scalability:** Designing a system that can scale with increasing data volumes and user demands.
 
 ## 🏃 How to Run
-1. Clone the repository  
+
+1. Navigate to the code source directory:
+
    ```sh
-   git clone https://github.com/your-repo.git
+   cd code/src
    ```
-2. Install dependencies  
+
+2. Install dependencies:
+
    ```sh
-   npm install  # or pip install -r requirements.txt (for Python)
+   pip3 install -r ./requirements.txt
    ```
-3. Run the project  
+
+3. Run the application:
    ```sh
-   npm start  # or python app.py
+   python3 -m main
    ```
 
 ## 🏗️ Tech Stack
-- 🔹 Backend: Flask
-- 🔹 Database: MongoDB
-- 🔹 Other: OpenAI API / Deepseek R1
+
+🔹 Backend: Flask (Python)
+🔹 Database: MongoDB
+🔹 AI Integration: OpenAI API / Deepseek R1
 
 ## 👥 Team
-- **Anirban Sikder** - [GitHub](#) | [LinkedIn](#)
-- **Devtanu Misra** - [GitHub](#) | [LinkedIn](#)
-- **Krishnendu Bera** - [GitHub](#) | [LinkedIn](#)
-- **Narasimha M. Edala** - [GitHub](#) | [LinkedIn](#)
-- **Dwaipayan Guha** - [GitHub](#) | [LinkedIn](#)
+
+Anirban Sikder
+Devtanu Misra
+Krishnendu Bera
+Narasimha M. Edala
+Dwaipayan Guha
