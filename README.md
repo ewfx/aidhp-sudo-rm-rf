@@ -59,6 +59,15 @@ Our solution is built with a focus on scalability and real-time data processing.
 
 ## 🏃 How to Run
 
+### Envs required
+
+```sh
+MONGO_URI=<mongodb_atlas_uri>
+DB_NAME=<database_name>
+OPENAI_API_KEY=<openai_api_key>
+OPENAI_BASE_URL=<openai_base_url>
+```
+
 1. Navigate to the code source directory:
 
    ```sh
