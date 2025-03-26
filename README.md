@@ -93,8 +93,8 @@ OPENAI_BASE_URL=<openai_base_url>
 
 ## 👥 Team
 
-Anirban Sikder
-Devtanu Misra
-Krishnendu Bera
-Narasimha M. Edala
+Anirban Sikder  
+Devtanu Misra  
+Krishnendu Bera  
+Narasimha M. Edala  
 Dwaipayan Guha
