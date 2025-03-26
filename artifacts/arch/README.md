@@ -178,7 +178,7 @@ In this sequence diagram, the scheduler merely calls the recommendation systemâ€
 
 This production readiness approach positions the recommendation system as a robust, scalable, and independent service that seamlessly integrates with various Wells Fargo LOBs. The clear separation between scheduling (triggering API calls) and processing (handling complex logic) ensures that the system can evolve and adapt to future business requirements while consistently delivering high-quality recommendations.
 
-[customer-screenshot]: images/customer.png
+[customer-screenshot]: images/Customer.png
 [product-screenshot]: images/product.png
 [segment-screenshot]: images/segment.png
 [transaction-screenshot]: images/transaction.png
