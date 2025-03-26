@@ -74,7 +74,7 @@ Since the schedulers are not yet implemented, the system exposes two main APIs t
    - Calls the LLM via OpenAI Chat Completions to generate a recommendation.
    - Parses the JSON response (which contains the `transaction_id` used for context, the recommended product, and the reason for recommendation) and updates the recommendation results in the database.
 
-### Updated Flow Diagrams
+### Flow Diagrams
 
 #### A. Transaction Analysis API Flow
 
